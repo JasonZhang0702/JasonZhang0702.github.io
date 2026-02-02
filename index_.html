@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Homepage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="icon" href="/img/face_icon.png" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .transition-custom {
+                transition: all 0.3s ease-in-out;
+            }
+
+            .section-fade {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+
+            .section-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-sans">
+<!-- Navigation -->
+<nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <a href="https://github.com/astro-jon/JingshenZhang" class="text-2xl font-bold text-primary">🌏 Jingshen
+            Zhang</a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+            <a href="#about" class="hover:text-primary transition-custom">About</a>
+            <span class="mx-4 border-l-2 border-gray-300 h-5"></span>
+            <a href="#publications" class="hover:text-primary transition-custom">Publications</a>
+            <span class="mx-4 border-l-2 border-gray-300 h-5"></span>
+            <a href="#experience" class="hover:text-primary transition-custom">Internship Experience</a>
+            <span class="mx-4 border-l-2 border-gray-300 h-5"></span>
+            <a href="#personal" class="hover:text-primary transition-custom">Hobbies</a>
+            <!--                <a href="#contact" class="hover:text-primary transition-custom">Contact</a>-->
+        </div>
+
+        <!-- Mobile Navigation Toggle -->
+        <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+            <i class="fa fa-bars text-xl"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md px-4 py-2">
+        <div class="flex flex-col space-y-3 py-3">
+            <a href="#about" class="hover:text-primary transition-custom">About</a>
+            <a href="#publications" class="hover:text-primary transition-custom">Publications</a>
+            <a href="#experience" class="hover:text-primary transition-custom">Experience</a>
+            <a href="#personal" class="hover:text-primary transition-custom">Personal</a>
+            <!--                <a href="#contact" class="hover:text-primary transition-custom">Contact</a>-->
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="about"
+         class="pt-32 pb-20 px-4 bg-[url('img/background.jpg')] bg-no-repeat bg-center bg-cover bg-white/70 bg-blend-overlay">
+    <div class="container mx-auto max-w-6xl">
+        <div class="flex flex-col md:flex-row items-center gap-10">
+            <div class="w-full md:w-1/3 ">
+                <img src="img/personal_photo.jpg" alt="Your profile photo"
+                     class="rounded-full w-64 h-64 object-cover mx-auto shadow-lg border-4 border-white">
+                <div class="flex justify-center md:justify-center space-x-5 mt-6">
+                    <a href="https://www.xiaohongshu.com/user/profile/60cd7f490000000020026152" target="_blank"
+                       class="bg-red-600 hover:bg-red-600 text-white p-3 rounded-full transition-custom">
+                        <img src="img/xhs_icon.png" alt="custom icon" class="w-5 h-7 object-cover">
+                    </a>
+                    <a href="https://github.com/JasonZhang0702" target="_blank"
+                       class="bg-dark hover:bg-gray-700 text-white p-3 rounded-full transition-custom">
+                        <i class="fa fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jingshen-zhang-03a797374/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3B0p7Gf%2BKvS%2F27ywpk%2BjT80A%3D%3D"
+                       target="_blank"
+                       class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-custom">
+                        <i class="fa fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="mailto:audbut0702@163.com"
+                       class="bg-primary hover:bg-blue-600 text-white p-3 rounded-full transition-custom">
+                        <i class="fa fa-envelope text-xl"></i>
+                    </a>
+                    <a href="#" target="_blank"
+                       class="bg-sky-500 hover:bg-sky-600 text-white p-3 rounded-full transition-custom">
+                        <i class="fa fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="w-full md:w-2/3 text-center md:text-left">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-shadow"><span class="text-primary">Jingshen Zhang</span>
+                </h1>
+<!--                <p class="text-xl md:text-2xl text-gray-600 mb-8">Researcher & Developer & Runner</p>-->
+                <p class="text-lg mb-6">I'm currently a first-year master's student majoring in Computer Science at Tianjin University (TJU). My research
+                    interests cover LLM Mechanistic Interpretability, LLM Safety, LLM4Psychology, AI4Neuroscience and NLP.</p>
+                <p class="text-lg mb-6">2021.9 - 2025.6, I obtained a B.S. in Software Engineering at Guangdong
+                    University of Foreign Studies (GDUFS), under the supervision of <a href="https://sist.gdufs.edu.cn/info/1764/9923.htm" style="text-decoration: underline;">Xinying Qiu</a>;
+                    2025.9 - 2028.6, I will pursue an M.S. in Computer Science at TJU, under the supervision of <a href="https://cic.tju.edu.cn/faculty/wangbo/index.htm" style="text-decoration: underline;">Bo Wang</a>.
+                Recently, I am honored to have been working with <a href="https://isakzhang.github.io/" style="text-decoration: underline;">Wenxuan Zhang</a> of Singapore University of Technology and Design (SUTD).</p>
+<!--                <p class="text-lg mb-6">🔥 Currently, I focus on XAI, Biological and Artificial Neural Systems.-->
+<!--                    I welcome discussions and exchanges. 🏃‍ I'm also a regular runner — feel free to join me-->
+<!--                    sometime!</p>-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Publications Section -->
+<section id="publications" class="py-10 px-4 section-fade">
+    <div class="container mx-auto max-w-6xl gap-8">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Publications</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-custom">
+                <h3 class="text-xl font-bold mb-2">Let’s Simplify Step by Step: Guiding LLM Towards Multilingual Unsupervised Proficiency-Controlled Sentence Simplification</h3>
+                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span>, Xinying Qiu,
+                    Lifang Lu, Zhuhua Huang, Yutao Hu, Yuechang Wu, JunYu Lu</p>
+                <p class="font-medium mb-3">
+                    <i>EACL2026 Findings</i>
+                        <a href="https://openreview.net/forum?id=dxeDcVnsnA&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3Deacl.org%2FEACL%2F2026%2FConference%2FAuthors%23your-submissions)" class="text-primary hover:text-blue-700 transition-custom">
+                            <i class="fa mr-1"></i> [Paper]
+                        </a>
+                        <a href="https://github.com/JasonZhang0702/simplify-step-by-step" class="text-primary hover:text-blue-700 transition-custom">
+                            [Code]
+                        </a>
+                        <a href="#" class="text-primary hover:text-blue-700 transition-custom">
+                            [Poster]
+                        </a>
+                </p>
+            </div>
+            <!-- Publication 1 -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-custom">
+                <h3 class="text-xl font-bold mb-2">Label Confidence Weighted Learning for Target-level Sentence
+                    Simplification</h3>
+                <p class="text-gray-600 mb-3">Xinying Qiu and <span class="font-bold">Jingshen Zhang</span></p>
+                <p class="font-medium mb-3">
+                    <i>EMNLP2024 Main</i>
+                        <a href="https://aclanthology.org/2024.emnlp-main.999/" class="text-primary hover:text-blue-700 transition-custom">
+                            <i class="fa mr-1"></i> [Paper]
+                        </a>
+                        <a href="https://github.com/astro-jon/LCWL" class="text-primary hover:text-blue-700 transition-custom">
+                            [Code]
+                        </a>
+                        <a href="https://jasonzhang0702.github.io/files/lcwl-emnlp2024-poster.pdf" class="text-primary hover:text-blue-700 transition-custom">
+                            [Poster]
+                        </a>
+                </p>
+            </div>
+
+            <!-- Publication 2 -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-custom">
+                <h3 class="text-xl font-bold mb-2">Readability-guided Idiom-aware Sentence Simplification (RISS) for
+                    Chinese</h3>
+                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span>, Xinglu Chen, Xinying Qiu,
+                    Zhimin Wang and Wenhe Feng</p>
+                <p class="font-medium mb-3">
+                    <i>CCL2024 Main</i>
+                    <a href="https://aclanthology.org/2024.ccl-1.92/" class="text-primary hover:text-blue-700 transition-custom">
+                            <i class="fa mr-1"></i> [Paper]
+                    </a>
+                    <a href="https://github.com/astro-jon/RISS" class="text-primary hover:text-blue-700 transition-custom">
+                        [Code]
+                    </a>
+                    <a href="https://jasonzhang0702.github.io/files/riss-ccl2024-poster.pdf" class="text-primary hover:text-blue-700 transition-custom">
+                        [Poster]
+                    </a>
+                </p>
+            </div>
+
+            <!-- Publication 3 -->
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-custom">
+                <h3 class="text-xl font-bold mb-2">Cross-Lingual Word Alignment for ASEAN Languages with Contrastive
+                    Learning</h3>
+                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span>, Xinying Qiu, Teng Shen,
+                    Wenyu Wang, Kailin Zhang and Wenhe Feng</p>
+                <p class="font-medium mb-3">
+                    <i>IALP2024</i>
+                    <a href="https://ieeexplore.ieee.org/document/10661117" class="text-primary hover:text-blue-700 transition-custom">
+                            <i class="fa mr-1"></i> [Paper]
+                    </a>
+                    <a href="https://github.com/astro-jon/ASEAN_word_alignment" class="text-primary hover:text-blue-700 transition-custom">
+                        [Code]
+                    </a>
+                    <a href="https://jasonzhang0702.github.io/files/asean_ialp2024_ppt.pdf" class="text-primary hover:text-blue-700 transition-custom">
+                        [Slide]
+                    </a>
+                </p>
+            </div>
+
+            <!-- In-progress Publication -->
+            <!--                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-custom border-l-4 border-yellow-400">-->
+            <!--                    <h3 class="text-xl font-bold mb-2">Cross-Lingual Word Alignment for ASEAN Languages with Contrastive Learning</h3>-->
+            <!--                    <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span>, Xinying Qiu, Teng Shen, Wenyu Wang, Kailin Zhang and Wenhe Feng</p>-->
+            <!--                    <p class="text-yellow-500 font-medium mb-3">IALP2024</p>-->
+            <!--                    <div class="flex space-x-3">-->
+            <!--                        <span class="text-gray-400">-->
+            <!--                            <i class="fa fa-clock-o mr-1"></i> Under Review-->
+            <!--                        </span>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+
+        </div>
+        <div class="font-medium mt-3">
+<!--            <p class="text-yellow-500 font-medium mb-3"> <i>Additionally, there are 3 papers on XAI that I authored as the first author, which are-->
+<!--                under review: one for AAAI 2026 (passed Phase 1 review), one for ICLR 2026, and the other one for EACL 2026. </i></p>-->
+            Full Publication List: <a
+                href="https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&user=clTVwX4AAAAJ"> <i> See
+            Google Scholar 🔗</i> </a>
+        </div>
+    </div>
+
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="py-0 px-4 bg-gray-50 section-fade">
+    <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Internship Experience</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="relative">
+            <!-- Timeline Line -->
+            <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-300"></div>
+
+            <!-- Experience 1 -->
+            <div class="mb-16 relative">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0 md:order-1">
+                        <h3 class="text-xl font-bold mb-1">Multilingual LLMs Internship</h3>
+                        <p class="text-primary font-medium mb-2">Singapore University of Technology and Design</p>
+                        <p class="text-gray-600 mb-3">March 2025 - Now</p>
+                        <!--                            <p>Worked on developing machine learning models for natural language processing tasks. Collaborated with a team of 5 engineers to implement and deploy a text classification system.</p>-->
+<!--                        <div class="flex flex-wrap justify-end gap-2 mt-3">-->
+<!--                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">PyTorch</span>-->
+<!--                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">LLM</span>-->
+<!--                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Interpretability</span>-->
+<!--                        </div>-->
+                    </div>
+
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center z-10">
+                        <!--                            <i class="fa fa-briefcase"></i>-->
+                    </div>
+
+                    <!--                        <div class="md:w-1/3 md:pl-12 md:order-2">-->
+                    <!--                            <img src="img/experience/SUTD.jpg" alt="Company work environment" class="rounded-lg shadow-md w-full">-->
+                    <!--                        </div>-->
+                </div>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="mb-16 relative">
+                <div class="flex flex-col md:flex-row items-center">
+
+                    <div class="md:w-1/2 md:pr-12 mb-8 md:mb-0">
+                        <!--                            <img src="img/experience/LionRock.jpg" alt="Research lab" class="rounded-lg shadow-md w-full">-->
+                    </div>
+
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center z-10">
+                    </div>
+
+                    <div class="md:w-1/2 md:pl-12">
+
+                        <h3 class="text-xl font-bold mb-1">World Model Internship</h3>
+                        <p class="text-primary font-medium mb-2">China Merchants LionRock AI Lab</p>
+                        <p class="text-gray-600 mb-3">September 2024 - December 2024</p>
+                        <!--                            <p>Conduct research on large language model interpretability. Designed and implemented experiments to analyze internal mechanisms of transformer models. Published one paper in a top-tier conference.</p>-->
+<!--                        <div class="flex flex-wrap gap-2 mt-3">-->
+<!--                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Python</span>-->
+<!--                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">World Model</span>-->
+<!--                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">AGI</span>-->
+<!--                        </div>-->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Personal Section -->
+<section id="personal" class="py-0 px-4 section-fade">
+    <div class="container mx-auto max-w-6xl">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Personal Hobbies</h2>
+            <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h3 class="text-2xl font-bold mb-6">Beyond Research</h3>
+                <p class="mb-4">When I'm not working on research projects, I enjoy various activities that keep me
+                    balanced and inspired:</p>
+
+                <div class="space-y-6 mt-8">
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-full mr-4">
+                            <i class="fa fa-not-found text-primary text-xl">🏃‍</i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Running</h4>
+                            <p class="text-gray-600">Half-Marathon PB: 1h35m (2025 Qingyuan Marathon, China)</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-full mr-4">
+                            <i class="fa fa-hiking text-primary text-xl">🚴</i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Riding</h4>
+                            <p class="text-gray-600">Solo cycling around Qinghai Lake, China</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-full mr-4">
+                            <i class="fa fa-non-found text-primary text-xl">📖</i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Reading</h4>
+                            <!--                                <p class="text-gray-600">I work on various coding side projects, from building useful tools to experimenting with new AI techniques.</p>-->
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div class="bg-primary/10 p-3 rounded-full mr-4">
+                            <i class="fa fa-non-found text-primary text-xl">🎸</i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-1">Guitar</h4>
+                            <!--                                <p class="text-gray-600">I play the guitar and enjoy creating my own music. It's a great creative outlet that complements my technical work.</p>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <img src="https://picsum.photos/seed/hobby1/300/300" alt="Hiking in mountains"
+                     class="rounded-lg shadow-md w-full h-64 object-cover transform hover:scale-105 transition-custom">
+                <img src="https://picsum.photos/seed/hobby2/300/300" alt="Reading books"
+                     class="rounded-lg shadow-md w-full h-64 object-cover transform hover:scale-105 transition-custom mt-8">
+                <img src="https://picsum.photos/seed/hobby3/300/300" alt="Playing guitar"
+                     class="rounded-lg shadow-md w-full h-64 object-cover transform hover:scale-105 transition-custom">
+                <img src="https://picsum.photos/seed/hobby4/300/300" alt="Coding side project"
+                     class="rounded-lg shadow-md w-full h-64 object-cover transform hover:scale-105 transition-custom mt-8">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<!--    <section id="contact" class="py-20 px-4 bg-dark text-white section-fade">-->
+<!--        <div class="container mx-auto max-w-6xl">-->
+<!--            <div class="text-center mb-16">-->
+<!--                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>-->
+<!--                <div class="w-20 h-1 bg-secondary mx-auto"></div>-->
+<!--            </div>-->
+
+<!--            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">-->
+<!--                <div>-->
+<!--                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>-->
+<!--                    <p class="mb-8 text-gray-300">Feel free to reach out to me for collaborations, questions, or just to connect!</p>-->
+
+<!--                    <div class="space-y-6">-->
+<!--                        <div class="flex items-center">-->
+<!--                            <div class="bg-secondary/20 p-3 rounded-full mr-4">-->
+<!--                                <i class="fa fa-envelope text-secondary"></i>-->
+<!--                            </div>-->
+<!--                            <span>your.email@example.com</span>-->
+<!--                        </div>-->
+
+<!--                        <div class="flex items-center">-->
+<!--                            <div class="bg-secondary/20 p-3 rounded-full mr-4">-->
+<!--                                <i class="fa fa-map-marker text-secondary"></i>-->
+<!--                            </div>-->
+<!--                            <span>Your Location, Country</span>-->
+<!--                        </div>-->
+
+<!--                        <div class="flex items-center">-->
+<!--                            <div class="bg-secondary/20 p-3 rounded-full mr-4">-->
+<!--                                <i class="fa fa-university text-secondary"></i>-->
+<!--                            </div>-->
+<!--                            <span>University Name, Department</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="mt-10">-->
+<!--                        <h4 class="font-bold text-lg mb-4">Connect on Social Media</h4>-->
+<!--                        <div class="flex space-x-4">-->
+<!--                            <a href="https://github.com/yourusername" target="_blank" class="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-custom">-->
+<!--                                <i class="fa fa-github"></i>-->
+<!--                            </a>-->
+<!--                            <a href="https://linkedin.com/in/yourusername" target="_blank" class="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-custom">-->
+<!--                                <i class="fa fa-linkedin"></i>-->
+<!--                            </a>-->
+<!--                            <a href="https://twitter.com/yourusername" target="_blank" class="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-custom">-->
+<!--                                <i class="fa fa-twitter"></i>-->
+<!--                            </a>-->
+<!--                            <a href="https://scholar.google.com/yourprofile" target="_blank" class="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-custom">-->
+<!--                                <i class="fa fa-graduation-cap"></i>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div>-->
+<!--                    <form class="bg-white/5 p-8 rounded-lg">-->
+<!--                        <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>-->
+
+<!--                        <div class="mb-4">-->
+<!--                            <label for="name" class="block mb-2">Your Name</label>-->
+<!--                            <input type="text" id="name" class="w-full bg-white/10 border border-white/20 rounded px-4 py-3 text-white focus:outline-none focus:border-secondary transition-custom" placeholder="John Doe">-->
+<!--                        </div>-->
+
+<!--                        <div class="mb-4">-->
+<!--                            <label for="email" class="block mb-2">Your Email</label>-->
+<!--                            <input type="email" id="email" class="w-full bg-white/10 border border-white/20 rounded px-4 py-3 text-white focus:outline-none focus:border-secondary transition-custom" placeholder="john@example.com">-->
+<!--                        </div>-->
+
+<!--                        <div class="mb-6">-->
+<!--                            <label for="message" class="block mb-2">Your Message</label>-->
+<!--                            <textarea id="message" rows="4" class="w-full bg-white/10 border border-white/20 rounded px-4 py-3 text-white focus:outline-none focus:border-secondary transition-custom" placeholder="Hello, I'd like to discuss..."></textarea>-->
+<!--                        </div>-->
+
+<!--                        <button type="submit" class="bg-secondary hover:bg-green-600 text-white font-bold py-3 px-6 rounded transition-custom w-full">-->
+<!--                            Send Message-->
+<!--                        </button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-8 px-4">
+    <div class="container mx-auto max-w-6xl">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-4 md:mb-0">&copy; 2025 Jingshen Zhang. All rights reserved.</p>
+            <p>Good Luck! ✨</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('py-2', 'shadow');
+            navbar.classList.remove('py-4');
+        } else {
+            navbar.classList.add('py-4');
+            navbar.classList.remove('py-2', 'shadow');
+        }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+
+                // Scroll to target
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Section fade-in animation on scroll
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('section-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.section-fade').forEach(section => {
+        observer.observe(section);
+    });
+</script>
+</body>
+</html>
