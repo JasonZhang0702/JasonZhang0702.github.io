@@ -20,16 +20,18 @@ body {
     margin: 0 auto;
 }
 
-/* --- 左侧栏样式 --- */
 .sidebar {
     width: 300px;
     height: 100vh;
-    position: sticky; /* 核心：固定位置 */
+    position: sticky;
     top: 0;
     padding: 40px 30px;
     background-color: #fff;
     border-right: 1px solid #eee;
     text-align: center;
+    overflow-y: auto;
+    scrollbar-width: none;
+    scrollbar-color: #ddd #f5f5f5;
 }
 
 .profile-photo img {
@@ -47,7 +49,6 @@ body {
 .contact-info li { margin-bottom: 10px; }
 .contact-info a { color: #007bff; text-decoration: none; }
 
-/* --- 右侧内容样式 --- */
 .main-content {
     flex: 1;
     padding: 0 40px;
@@ -96,14 +97,12 @@ body {
     margin-bottom: 5px;
 }
 
-/* 响应式适配：手机端自动变为上下结构 */
 @media (max-width: 768px) {
     .container { flex-direction: column; }
     .sidebar { width: 100%; height: auto; position: relative; border-right: none; }
     .main-content { padding: 0 20px; }
 }
 
-/* 在 style.css 中添加 */
 .navbar ul li a.active {
     color: #007bff;
     border-bottom: 2px solid #007bff;
