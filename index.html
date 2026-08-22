@@ -33,6 +33,81 @@
             margin-left: 0;
             line-height: 1.6;
         }
+        .alignment-goal {
+            color: #0b3a75;
+            font-style: italic;
+        }
+        .opportunity-note {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+            padding: 0.9rem 1.1rem;
+            background: #eef6ff;
+            border-left: 5px solid #1d4ed8;
+            border-radius: 5px;
+            color: #3f4652;
+            font-weight: 600;
+        }
+        .opportunity-note i {
+            color: #0b3a75;
+        }
+        .opportunity-note a {
+            color: #0b5cad;
+            text-decoration: none;
+        }
+        .news-section h2 {
+            border-left: none;
+            padding-left: 0;
+        }
+        .news-title {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 3px solid #e5e7eb;
+            color: #273444;
+        }
+        .news-title .news-icon {
+            font-size: 1.65rem;
+            line-height: 1;
+        }
+        .news-window {
+            margin-top: 1rem;
+            overflow-y: auto;
+            padding-right: 0.65rem;
+            scrollbar-color: #cbd5e1 transparent;
+            scrollbar-width: thin;
+        }
+        .news-window::-webkit-scrollbar {
+            width: 6px;
+        }
+        .news-window::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 999px;
+        }
+        .news-window::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .news-list {
+            margin: 0;
+            padding-left: 2rem;
+            color: #454b54;
+        }
+        .news-list li {
+            margin-bottom: 0.64rem;
+            line-height: 1.6;
+        }
+        .news-date {
+            margin-right: 0.35rem;
+            color: #404854;
+            font-style: italic;
+            font-weight: 600;
+        }
+        .news-list strong {
+            color: #414852;
+            font-weight: 700;
+        }
 
     </style>
 </head>
@@ -61,7 +136,11 @@
                 Currently, I am visiting in iNLP Lab @ Singapore University of Technology and Design (SUTD),
                         supervised by <a href="https://isakzhang.github.io/index.html" style="text-decoration: underline;">Prof. Wenxuan Zhang</a>.
                 I also have the pleasure of working with <a href="https://shaoyangxu.github.io/" style="text-decoration: underline;">Shaoyang Xu</a> and <a href="https://10eit.github.io/" style="text-decoration: underline;">Yanlin Fu</a>.
-                <br>My research focuses on natural language processing, large language models, and trustworthy AI, with the goal of making AI alignment with both human values and real-world environments measurable, interpretable, and externalizable.</p>
+                <br>My research focuses on natural language processing, large language models, and trustworthy AI, with the goal of <span class="alignment-goal">making AI alignment with both human values and real-world environments measurable, interpretable, and externalizable.</span></p>
+            <div class="opportunity-note">
+                <i class="fas fa-bullhorn"></i>
+                <span>I am actively seeking industry internship opportunities. If you think my background could be a good fit, feel free to reach out at <a href="mailto:audbut0702@163.com">audbut0702@163.com</a>.</span>
+            </div>
 <!--            <p>-->
 <!--                2021.09-2025.06, I obtained a B.S. in Software Engineering at Guangdong University of Foreign Studies-->
 <!--                (GDUFS), under the supervision of-->
@@ -71,6 +150,23 @@
 <!--                    href="https://cic.tju.edu.cn/faculty/wangbo/index.htm" style="text-decoration: underline;">Bo-->
 <!--                Wang</a>.-->
 <!--            </p>-->
+        </section>
+
+        <section id="news" class="section news-section">
+            <h2 class="text-2xl font-bold news-title"><span class="news-icon">🔥</span>News</h2>
+            <div class="news-window" data-visible-items="6">
+                <ul class="news-list">
+                    <li><span class="news-date">2026.08:</span> 🎉 Two papers (<strong>Alignment but Flattening</strong> & <strong>Beyond Alignment</strong>) were accepted to <strong>EMNLP 2026 Findings</strong>.</li>
+                    <li><span class="news-date">2026.07:</span> ✈️ Started my visiting at <strong>iNLP Lab @ SUTD</strong>.</li>
+                    <li><span class="news-date">2026.01:</span> 🎉 One paper (<strong>Let’s Simplify Step by Step</strong>) was accepted to <strong>EACL 2026 Findings</strong>.</li>
+                    <li><span class="news-date">2025.09:</span> 🎓 Started my master's journey at <strong>TJU</strong>.</li>
+                    <li><span class="news-date">2024.09:</span> 🚀 Joined <strong>Lionrock AI</strong> Lab as a Research Intern, focusing on world models.</li>
+                    <li><span class="news-date">2024.09:</span> 🎉 One paper (<strong>LCWL</strong>) was accepted to <strong>EMNLP 2024 Main Conference</strong>.</li>
+                    <li><span class="news-date">2024.08:</span> 🎉 One paper was accepted to <strong>IALP 2024</strong>.</li>
+                    <li><span class="news-date">2024.07:</span> 🎉 One paper (<strong>RISS</strong>) was accepted to <strong>CCL 2024</strong>.</li>
+                    <li><span class="news-date">2024.06:</span> 🏆 We won <strong>1st place</strong> in Track 3 of the <strong>CCL Chinese Essay Fluency Evaluation (CEFE) Task 7</strong>.</li>
+                </ul>
+            </div>
         </section>
 
         <section id="publications" class="section">
@@ -108,7 +204,7 @@
             <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
                 <ul>
                     <li><strong>Singapore University of Technology and Design (SUTD)</strong> <br>
-                        Research Intern, Mar. 2025 - Now. <br>
+                        Visiting Student, Mar. 2025 - Now. <br>
                         Research Focus: Multicultural/Multilingual Large Language Models, Mechanistic Interpretability
                     </li>
                 </ul>
@@ -116,7 +212,7 @@
             <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
                 <ul>
                     <li><strong>Institute of Automation, Chinese Academy of Sciences (CASIA)</strong> <br>
-                        Research Intern, Dec. 2025 - June. 2026. <br>
+                        Research Intern, Dec. 2025 - June. 2026, supervised by Prof. <a href="https://casialiguoqi.github.io/">Guoqi Li</a>. <br>
                         Research Focus: Vision-Language Model, Mechanistic Interpretability
                     </li>
                 </ul>
@@ -124,8 +220,9 @@
             <div class="intern-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
                 <ul class="intern-content">
                     <li><strong>Lionrock AI Lab, China Merchants Research Institute of Advanced Technology</strong> <br>
-                        Research Intern, Sept. 2024 - Dec. 2024. <br>
-                        Responsibilities: World Model, Multimodality Model
+                        Research Intern, Sept. 2024 - Dec. 2024, supervised by Prof. <a href="https://scholar.google.com/citations?hl=zh-CN&user=ozXuhOUAAAAJ&view_op=list_works&sortby=pubdate">Jiaxing Zhang</a> 
+                        and mentored by <a href="https://github.com/Linh-Ice">JunYu Lu</a>. <br>
+                        Research Focus: World Model
                     </li>
                 </ul>
             </div>
@@ -148,6 +245,31 @@
       const currentMonth = monthNames[now.getMonth()];
       const currentYear = now.getFullYear();
       document.querySelector("#update-time .time-text").textContent = `${currentMonth} ${currentYear}`;
+
+</script>
+<script>
+function setNewsWindowHeight() {
+  const newsWindow = document.querySelector(".news-window");
+  if (!newsWindow) return;
+
+  const visibleItems = Number(newsWindow.dataset.visibleItems) || 6;
+  const items = Array.from(newsWindow.querySelectorAll(".news-list li"));
+  if (items.length <= visibleItems) {
+    newsWindow.style.maxHeight = "";
+    return;
+  }
+
+  const lastVisibleItem = items[visibleItems - 1];
+  const itemStyle = getComputedStyle(lastVisibleItem);
+  const visibleHeight = lastVisibleItem.offsetTop
+    + lastVisibleItem.offsetHeight
+    + (parseFloat(itemStyle.marginBottom) || 0);
+
+  newsWindow.style.maxHeight = `${Math.ceil(visibleHeight)}px`;
+}
+
+window.addEventListener("load", setNewsWindowHeight);
+window.addEventListener("resize", setNewsWindowHeight);
 
 </script>
 <script>
