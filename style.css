@@ -71,6 +71,8 @@ body {
 
 .navbar ul {
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
     list-style: none;
 }
 
@@ -146,6 +148,92 @@ body {
 }
 .intern-content {
     min-width: 0;
+}
+.content-group-list,
+.blog-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.content-group {
+    margin-bottom: 0.85rem;
+}
+.content-group:last-child {
+    margin-bottom: 0;
+}
+.content-group-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    line-height: 1.5;
+}
+.content-group-heading i,
+.content-group-icon {
+    flex: 0 0 1.15rem;
+    width: 1.15rem;
+    text-align: center;
+}
+.podcast-icon {
+    color: #e24a4a;
+    font-size: 1.15rem;
+}
+.notes-icon {
+    color: #9a6b2f;
+    font-size: 1.05rem;
+}
+.life-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+.content-group .blog-list {
+    margin: 0.35rem 0 0 1.7rem;
+}
+.blog-resource-item {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    line-height: 1.5;
+}
+.blog-resource-item + .blog-resource-item {
+    margin-top: 0.25rem;
+}
+.life-list {
+    list-style: none;
+    margin: 0.35rem 0 0 1.7rem;
+    padding: 0;
+}
+.life-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    line-height: 1.5;
+}
+.life-item + .life-item {
+    margin-top: 0.25rem;
+}
+.life-item-icon {
+    flex: 0 0 1.15rem;
+    width: 1.15rem;
+    text-align: center;
+}
+.blog-item a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #4a90c2;
+    line-height: 1.5;
+    text-decoration: none;
+}
+.blog-item a:hover,
+.blog-item a:focus-visible {
+    color: #0b5cad;
+    text-decoration: underline;
+}
+.blog-item i {
+    flex: 0 0 auto;
+    color: #e24a4a;
+    font-size: 1.15rem;
 }
 .pub-year {
     display: inline-block;
