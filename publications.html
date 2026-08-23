@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Homepage</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="icon" href="/img/face_icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css?v=20260823-4">
     <style>
         * {
           font-family: "Times New Roman", SimSun, serif;
@@ -132,7 +131,7 @@
       document.querySelector("#update-time .time-text").textContent = `${currentMonth} ${currentYear}`;
     </script>
 <script>
-fetch('sidebar.html')
+fetch('sidebar.html?v=20260823-1')
   .then(response => {
     if (!response.ok) throw new Error('Loading Sidebar Failed...');
     return response.text();
@@ -143,5 +142,6 @@ fetch('sidebar.html')
   .catch(err => console.error(err));
 
 </script>
+<script src="sidebar.js?v=20260823-1"></script>
 </body>
 </html>

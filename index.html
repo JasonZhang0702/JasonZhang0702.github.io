@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="/img/face_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=20260823-1">
+    <link rel="stylesheet" href="style.css?v=20260823-4">
     <style>
         * {
           font-family: "Times New Roman", SimSun, serif;
@@ -415,7 +415,7 @@ navLinks.forEach(link => {
 
 </script>
 <script>
-fetch('sidebar.html')
+fetch('sidebar.html?v=20260823-1')
   .then(response => {
     if (!response.ok) throw new Error('Loading Sidebar Failed...');
     return response.text();
@@ -426,5 +426,6 @@ fetch('sidebar.html')
   .catch(err => console.error(err));
 
 </script>
+<script src="sidebar.js?v=20260823-1"></script>
 </body>
 </html>
