@@ -37,6 +37,40 @@
             color: #0b3a75;
             font-style: italic;
         }
+        .alignment-principles {
+            list-style: disc;
+            margin: 0.75rem 0 0.25rem;
+            padding-left: 1.5rem;
+        }
+        .alignment-principles li {
+            margin: 0.3rem 0;
+            line-height: 1.55;
+        }
+        .alignment-principles li::marker {
+            color: #0b3a75;
+            font-size: 1.25em;
+        }
+        .paper-reference {
+            color: #4a90c2;
+        }
+        .paper-reference a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .paper-reference a:hover,
+        .paper-reference a:focus-visible {
+            color: #0b5cad;
+            text-decoration: underline;
+        }
+        .publication-links a {
+            color: #4a90c2;
+            text-decoration: none;
+        }
+        .publication-links a:hover,
+        .publication-links a:focus-visible {
+            color: #0b5cad;
+            text-decoration: underline;
+        }
         .opportunity-note {
             display: flex;
             align-items: center;
@@ -74,10 +108,15 @@
         }
         .news-window {
             margin-top: 1rem;
-            overflow-y: auto;
+            overflow-y: hidden;
             padding-right: 0.65rem;
+            position: relative;
             scrollbar-color: #cbd5e1 transparent;
             scrollbar-width: thin;
+        }
+        .news-window.is-scrollable {
+            overflow-y: scroll;
+            box-shadow: inset 0 -14px 12px -14px rgba(15, 23, 42, 0.35);
         }
         .news-window::-webkit-scrollbar {
             width: 6px;
@@ -119,11 +158,11 @@
     <main class="main-content">
         <nav class="navbar">
             <ul>
-                <li><a href="#" class="active">About me</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="#">Internship</a></li>
-                <li><a href="#">Blogs</a></li>
-                <li><a href="#">Collaborators</a></li>
+                <li><a href="#about" class="active">About Me</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Internship</a></li>
+                <li><a href="#blogs">Blogs & Life</a></li>
             </ul>
         </nav>
 
@@ -137,6 +176,11 @@
                         supervised by <a href="https://isakzhang.github.io/index.html" style="text-decoration: underline;">Prof. Wenxuan Zhang</a>.
                 I also have the pleasure of working with <a href="https://shaoyangxu.github.io/" style="text-decoration: underline;">Shaoyang Xu</a> and <a href="https://10eit.github.io/" style="text-decoration: underline;">Yanlin Fu</a>.
                 <br>My research focuses on natural language processing, large language models, and trustworthy AI, with the goal of <span class="alignment-goal">making AI alignment with both human values and real-world environments measurable, interpretable, and externalizable.</span></p>
+            <ul class="alignment-principles">
+                <li>Measurable — <em>“What gets measured gets improved.”</em> <span class="paper-reference">[<a href="https://openreview.net/pdf?id=yQq7yj7Tg6" target="_blank">Alignment but Flattening</a>]</span></li>
+                <li>Interpretable — <em>“Understanding is the first step toward improvement.”</em> <span class="paper-reference">[<a href="https://arxiv.org/abs/2605.09647" target="_blank">Self-debiasing Neurons</a>]</span></li>
+                <li>Externalizable — <em>“Actions speak louder than words.”</em> <span class="paper-reference">[<a href="https://aclanthology.org/2026.findings-eacl.279/" target="_blank">Let’s Simplify Step by Step</a>; <a href="https://aclanthology.org/2024.emnlp-main.999/" target="_blank">LCWL</a>]</span></li>
+            </ul>
             <div class="opportunity-note">
                 <i class="fas fa-bullhorn"></i>
                 <span>I am actively seeking industry internship opportunities. If you think my background could be a good fit, feel free to reach out at <a href="mailto:audbut0702@163.com">audbut0702@163.com</a>.</span>
@@ -172,45 +216,58 @@
         <section id="publications" class="section">
             <h2 class="text-2xl font-bold">Publications</h2>
             <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
-                <p class="text-xl font-bold mb-2"><strong>Let’s Simplify Step by Step: Guiding LLM Towards Multilingual
-                    Unsupervised Proficiency-Controlled Sentence Simplification</strong><br>
-                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span>, Xinying Qiu, Lifang Lu,
+                <p class="text-xl font-bold mb-2"><strong>Let’s Simplify Step by Step: Guiding LLM Towards Multilingual Unsupervised Proficiency-Controlled Sentence Simplification</strong></p>
+                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span>, Xinying Qiu<sup class="corresponding-author" aria-label="corresponding author">†</sup>, Lifang Lu,
                     Zhuhua Huang, Yutao Hu, Yuechang Wu, JunYu Lu</p>
-                <i>EACL2026 Findings. </i><a href="https://openreview.net/pdf?id=dxeDcVnsnA">[PDF]</a> <a
-                    href="https://github.com/JasonZhang0702/simplify-step-by-step">[Code]</a></p>
+                <p><i>EACL2026 Findings. </i><span class="publication-links"><a href="https://aclanthology.org/2026.findings-eacl.279/" target="_blank" rel="noopener noreferrer">[PDF]</a> <a href="https://github.com/JasonZhang0702/simplify-step-by-step" target="_blank" rel="noopener noreferrer">[Code]</a></span></p>
             </div>
             <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
-                <p class="text-xl font-bold mb-2"><strong>Label Confidence Weighted Learning for Target-level Sentence
-                    Simplification</strong><br>
-                <p class="text-gray-600 mb-3">Xinying Qiu and <span class="font-bold">Jingshen Zhang</span></p>
-                <i>EMNLP2024 Main. </i>
-                <a href="https://aclanthology.org/2024.emnlp-main.999/">[PDF]</a> <a
-                    href="https://github.com/astro-jon/LCWL">[Code]</a> <a
-                    href="https://jasonzhang0702.github.io/files/lcwl-emnlp2024-poster.pdf">[Poster]</a></p>
+                <p class="text-xl font-bold mb-2"><strong>DualReward: A Dynamic Reinforcement Learning Framework for Cloze Tests Distractor Generation</strong></p>
+                <p class="text-gray-600 mb-3">Tianyou Huang<sup class="equal-contribution" aria-label="equal contribution">*</sup>, Xinglu Chen<sup class="equal-contribution" aria-label="equal contribution">*</sup>, <span class="font-bold">Jingshen Zhang</span>, Xinying Qiu<sup class="corresponding-author" aria-label="corresponding author">†</sup>, and Ruiying Niu</p>
+                <p><i>CCL2025 Main. </i><span class="publication-links"><a href="https://arxiv.org/abs/2507.11875" target="_blank" rel="noopener noreferrer">[PDF]</a> <a href="https://github.com/tenny314159/dualreward" target="_blank" rel="noopener noreferrer">[Code]</a></span></p>
             </div>
             <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
-                <p class="text-xl font-bold mb-2"><strong>Readability-guided Idiom-aware Sentence Simplification (RISS)
-                    for Chinese</strong><br>
-                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span>, Xinglu Chen, Xinying Qiu,
+                <p class="text-xl font-bold mb-2"><strong>Label Confidence Weighted Learning for Target-level Sentence Simplification</strong></p>
+                <p class="text-gray-600 mb-3">Xinying Qiu<sup class="corresponding-author" aria-label="corresponding author">†</sup> and <span class="font-bold">Jingshen Zhang</span></p>
+                <p><i>EMNLP2024 Main. </i><span class="publication-links"><a href="https://aclanthology.org/2024.emnlp-main.999/" target="_blank" rel="noopener noreferrer">[PDF]</a> <a href="https://github.com/astro-jon/LCWL" target="_blank" rel="noopener noreferrer">[Code]</a> <a href="https://jasonzhang0702.github.io/files/lcwl-emnlp2024-poster.pdf" target="_blank" rel="noopener noreferrer">[Poster]</a></span></p>
+            </div>
+            <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
+                <p class="text-xl font-bold mb-2"><strong>Readability-guided Idiom-aware Sentence Simplification (RISS) for Chinese</strong></p>
+                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span>, Xinglu Chen, Xinying Qiu<sup class="corresponding-author" aria-label="corresponding author">†</sup>,
                     Zhimin Wang and Wenhe Feng</p>
-                <i>CCL2024 Main. </i>
-                <a href="https://aclanthology.org/2024.ccl-1.92/">[PDF]</a> <a href="https://github.com/astro-jon/RISS">[Code]</a>
-                <a href="https://jasonzhang0702.github.io/files/riss-ccl2024-poster.pdf">[Poster]</a></p>
+                <p><i>CCL2024 Main. </i><span class="publication-links"><a href="https://aclanthology.org/2024.ccl-1.92/" target="_blank" rel="noopener noreferrer">[PDF]</a> <a href="https://github.com/astro-jon/RISS" target="_blank" rel="noopener noreferrer">[Code]</a> <a href="https://jasonzhang0702.github.io/files/riss-ccl2024-poster.pdf" target="_blank" rel="noopener noreferrer">[Poster]</a></span></p>
+            </div>
+            <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
+                <p class="text-xl font-bold mb-2"><strong>Controlling Cloze-test Question Item Difficulty with PLM-based Surrogate Models for IRT Assessment</strong></p>
+                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span><sup class="equal-contribution" aria-label="equal contribution">*</sup>, Jiajun Xie<sup class="equal-contribution" aria-label="equal contribution">*</sup>, and Xinying Qiu<sup class="corresponding-author" aria-label="corresponding author">†</sup></p>
+                <p><i>Arxiv 2024. </i><span class="publication-links"><a href="https://arxiv.org/abs/2403.01456" target="_blank" rel="noopener noreferrer">[PDF]</a></span></p>
+            </div>
+            <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
+                <p class="text-xl font-bold mb-2"><strong>System Report for CCL24-Eval Task 7: Multi-Error Modeling and Fluency-Targeted Pre-training for Chinese Essay Evaluation</strong></p>
+                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span><sup class="equal-contribution" aria-label="equal contribution">*</sup>, Xiangyu Yang<sup class="equal-contribution" aria-label="equal contribution">*</sup>, Xinkai Su, Xinglu Chen, Tianyou Huang, and Xinying Qiu<sup class="corresponding-author" aria-label="corresponding author">†</sup></p>
+                <p><i>CCL2024 Workshop. </i><span class="publication-links"><a href="https://aclanthology.org/2024.ccl-3.30/" target="_blank" rel="noopener noreferrer">[PDF]</a> <a href="https://github.com/astro-jon/ccl2024-coherence" target="_blank" rel="noopener noreferrer">[Code]</a></span></p>
+            </div>
+            <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
+                <p class="text-xl font-bold mb-2"><strong>Cross-Lingual Word Alignment for ASEAN Languages with Contrastive Learning</strong></p>
+                <p class="text-gray-600 mb-3"><span class="font-bold">Jingshen Zhang</span>, Xinying Qiu<sup class="corresponding-author" aria-label="corresponding author">†</sup>, Teng Shen, Wenyu Wang, Kailin Zhang, and Wenhe Feng</p>
+                <p><i>IALP2024. </i><span class="publication-links"><a href="https://arxiv.org/abs/2407.05054" target="_blank" rel="noopener noreferrer">[PDF]</a></span></p>
             </div>
         </section>
 
         <section id="experience" class="section">
             <h2 class="text-2xl font-bold">Internship</h2>
-            <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
-                <ul>
+            <div class="intern-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
+                <div class="intern-logo"><img src="img/logo/SUTD.svg" alt="" loading="lazy"></div>
+                <ul class="intern-content">
                     <li><strong>Singapore University of Technology and Design (SUTD)</strong> <br>
                         Visiting Student, Mar. 2025 - Now. <br>
                         Research Focus: Multicultural/Multilingual Large Language Models, Mechanistic Interpretability
                     </li>
                 </ul>
             </div>
-            <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
-                <ul>
+            <div class="intern-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
+                <div class="intern-logo"><img src="img/logo/CASIA.jpg" alt="" loading="lazy"></div>
+                <ul class="intern-content">
                     <li><strong>Institute of Automation, Chinese Academy of Sciences (CASIA)</strong> <br>
                         Research Intern, Dec. 2025 - June. 2026, supervised by Prof. <a href="https://casialiguoqi.github.io/">Guoqi Li</a>. <br>
                         Research Focus: Vision-Language Model, Mechanistic Interpretability
@@ -218,6 +275,7 @@
                 </ul>
             </div>
             <div class="intern-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
+                <div class="intern-logo"><img src="img/logo/LIONROCK.png" alt="" loading="lazy"></div>
                 <ul class="intern-content">
                     <li><strong>Lionrock AI Lab, China Merchants Research Institute of Advanced Technology</strong> <br>
                         Research Intern, Sept. 2024 - Dec. 2024, supervised by Prof. <a href="https://scholar.google.com/citations?hl=zh-CN&user=ozXuhOUAAAAJ&view_op=list_works&sortby=pubdate">Jiaxing Zhang</a> 
@@ -230,11 +288,11 @@
         </section>
 
         <section id="blogs" class="section">
-            <h2 class="text-2xl font-bold">Blogs</h2>
+            <h2 class="text-2xl font-bold">Blogs & Life</h2>
         </section>
 
         <footer>
-            <p id="update-time">© Jason Zhang. Last updated: Jun 2026.</p>
+            <p id="update-time">© Jason Zhang. Last updated: Aug 2026.</p>
         </footer>
     </main>
 </div>
@@ -254,22 +312,38 @@ function setNewsWindowHeight() {
 
   const visibleItems = Number(newsWindow.dataset.visibleItems) || 6;
   const items = Array.from(newsWindow.querySelectorAll(".news-list li"));
+  newsWindow.classList.remove("is-scrollable");
+  newsWindow.style.maxHeight = "";
+
   if (items.length <= visibleItems) {
-    newsWindow.style.maxHeight = "";
     return;
   }
 
   const lastVisibleItem = items[visibleItems - 1];
   const itemStyle = getComputedStyle(lastVisibleItem);
-  const visibleHeight = lastVisibleItem.offsetTop
-    + lastVisibleItem.offsetHeight
+  const newsWindowRect = newsWindow.getBoundingClientRect();
+  const lastVisibleItemRect = lastVisibleItem.getBoundingClientRect();
+  const visibleHeight = lastVisibleItemRect.bottom
+    - newsWindowRect.top
     + (parseFloat(itemStyle.marginBottom) || 0);
 
   newsWindow.style.maxHeight = `${Math.ceil(visibleHeight)}px`;
+  newsWindow.classList.add("is-scrollable");
 }
 
 window.addEventListener("load", setNewsWindowHeight);
 window.addEventListener("resize", setNewsWindowHeight);
+setNewsWindowHeight();
+
+</script>
+<script>
+const navLinks = document.querySelectorAll(".navbar a[href^='#']");
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.forEach(navLink => navLink.classList.remove("active"));
+    link.classList.add("active");
+  });
+});
 
 </script>
 <script>
