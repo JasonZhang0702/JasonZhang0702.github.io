@@ -70,6 +70,85 @@
             color: #0b5cad;
             text-decoration: underline;
         }
+        .publications-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 8px;
+        }
+        #publications .publications-heading h2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        .publication-filter {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            height: 2rem;
+            margin-left: auto;
+            padding: 0 0.35rem 0 0.75rem;
+            border: 1px solid #dbe4ef;
+            border-radius: 8px;
+            background: #f8fbff;
+            color: #374151;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+        .publication-filter-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            min-width: 4rem;
+            height: 1.5rem;
+            padding: 0 0.55rem;
+            border: 1px solid #9ca3af;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #4b5563;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 600;
+            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .publication-filter-toggle::before {
+            width: 0.7rem;
+            height: 0.7rem;
+            border-radius: 50%;
+            background: #9ca3af;
+            content: "";
+            transition: background-color 0.2s;
+        }
+        .publication-filter-toggle[aria-checked="true"] {
+            border-color: #2563eb;
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+        .publication-filter-toggle[aria-checked="true"]::before {
+            background: #2563eb;
+        }
+        .publication-filter-toggle:focus-visible {
+            outline: 3px solid rgba(37, 99, 235, 0.25);
+            outline-offset: 2px;
+        }
+        #publications .pub-item[hidden] {
+            display: none;
+        }
+        #publications .publication-note {
+            margin: 0 0 10px;
+        }
+        @media (max-width: 640px) {
+            .publications-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+            .publication-filter {
+                align-self: flex-end;
+            }
+        }
         .opportunity-note {
             display: flex;
             align-items: center;
@@ -220,7 +299,15 @@
         </section>
 
         <section id="publications" class="section">
-            <h2 class="text-2xl font-bold">Publications</h2>
+            <div class="publications-heading">
+                <h2 class="text-2xl font-bold">Publications</h2>
+                <div class="publication-filter">
+                    <span id="first-student-author-label">Only list the first (student) author</span>
+                    <button class="publication-filter-toggle" id="first-student-author-toggle" type="button" role="switch" aria-checked="false" aria-labelledby="first-student-author-label first-student-author-status">
+                        <span id="first-student-author-status">No</span>
+                    </button>
+                </div>
+            </div>
             <p class="publication-note">* denotes equal contribution; † denotes the corresponding author.</p>
             <div class="pub-item bg-white rounded-md shadow-md p-6 hover:shadow-md transition-custom">
                 <p class="text-xl font-bold mb-2"><strong>Aligned but Flattened: Analyzing the Trade-off between Cultural Alignment and Diversity in LLMs</strong></p>
@@ -388,6 +475,48 @@
       const currentYear = now.getFullYear();
       document.querySelector("#update-time .time-text").textContent = `${currentMonth} ${currentYear}`;
 
+</script>
+<script>
+const firstStudentAuthorToggle = document.getElementById("first-student-author-toggle");
+const firstStudentAuthorStatus = document.getElementById("first-student-author-status");
+const publicationItems = Array.from(document.querySelectorAll("#publications .pub-item"));
+
+function isMyFirstStudentAuthorPaper(publication) {
+  const authorLine = publication.querySelector(".text-gray-600.mb-3");
+  const myNameElement = authorLine?.querySelector(".font-bold");
+  if (!authorLine || !myNameElement) return false;
+
+  const myName = myNameElement.textContent.trim();
+  const authors = authorLine.textContent
+    .replace(/\s+/g, " ")
+    .split(/,\s*(?:and\s+)?|\s+and\s+/)
+    .map(author => author.trim())
+    .filter(Boolean);
+  const normalizedName = author => author.replace(/[†*]/g, "").trim();
+  const myAuthorEntry = authors.find(author => normalizedName(author) === myName);
+  const firstStudentAuthor = authors.find(author => !author.includes("†"));
+
+  return Boolean(
+    myAuthorEntry
+    && (myAuthorEntry.includes("*") || normalizedName(firstStudentAuthor || "") === myName)
+  );
+}
+
+function updatePublicationFilter() {
+  const onlyFirstStudentAuthor = firstStudentAuthorToggle.getAttribute("aria-checked") === "true";
+  firstStudentAuthorStatus.textContent = onlyFirstStudentAuthor ? "Yes" : "No";
+  publicationItems.forEach(publication => {
+    publication.hidden = onlyFirstStudentAuthor && !isMyFirstStudentAuthorPaper(publication);
+  });
+}
+
+firstStudentAuthorToggle.addEventListener("click", () => {
+  const isEnabled = firstStudentAuthorToggle.getAttribute("aria-checked") === "true";
+  firstStudentAuthorToggle.setAttribute("aria-checked", String(!isEnabled));
+  updatePublicationFilter();
+});
+
+updatePublicationFilter();
 </script>
 <script>
 function setNewsWindowHeight() {
